@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Random Question and Answer</title>
+</head>
+
+<body>
+    <button id="toggle-mode-button" onclick="toggleMode()">Night Mode</button>
+    <button id="back-button"><a href="../Random_PnT/option.html">Back</a></button>
+
+    <div class="container">
+        <p id="question-count" class="count hidden"></p>
+        <div class="photo-container">
+            <img id="question-photo" class="photo hidden" src="photo/photo1.png" alt="Question Photo">
+            <img id="answer-photo" class="photo hidden" src="text/text1.png" alt="">
+        </div>
+        <button id="start-button" onclick="start()">Start</button>
+        <button id="show-answer-button" class="hidden" onclick="showAnswer()">Show Answer</button>
+        <button id="next-button" class="hidden" onclick="next()">Next Question</button>
+        <button id="reset-button" class="hidden" onclick="reset()">Reset</button>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+
+</html>
