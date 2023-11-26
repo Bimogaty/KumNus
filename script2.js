@@ -63,22 +63,37 @@ const questionPhotos = [
 let currentIndex = 0;
 let shuffledIndices = [];
 
+const questionPhotoElement = document.getElementById("question-photo");
+const answerPhotoElement = document.getElementById("answer-photo");
+const showAnswerButton = document.getElementById("show-answer-button");
+const nextButton = document.getElementById("next-button");
+const resetButton = document.getElementById("reset-button");
+const questionCountElement = document.getElementById("question-count");
+
+document.getElementById("toggle-mode-button").addEventListener("click", toggleMode);
+document.getElementById("back-button").addEventListener("click", goBack);
+document.getElementById("start-button").addEventListener("click", start);
+document.getElementById("show-answer-button").addEventListener("click", showAnswer);
+document.getElementById("next-button").addEventListener("click", next);
+document.getElementById("reset-button").addEventListener("click", reset);
+
 function start() {
-    document.getElementById("start-button").classList.add("hidden");
-    document.getElementById("question-photo").classList.remove("hidden");
-    document.getElementById("show-answer-button").classList.remove("hidden");
-    document.getElementById("question-count").classList.remove("hidden");
+    const startButton = document.getElementById("start-button");
+    startButton.classList.add("hidden");
+
+    questionPhotoElement.classList.remove("hidden");
+    showAnswerButton.classList.remove("hidden");
+    questionCountElement.classList.remove("hidden");
 
     if (shuffledIndices.length === 0) {
         shuffledIndices = shuffleArray(questionPhotos.length);
     }
 
-    document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
+    questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
     updateQuestionCount();
 }
 
 function updateQuestionCount() {
-    const questionCountElement = document.getElementById("question-count");
     questionCountElement.textContent = `Question ${currentIndex + 1} of ${questionPhotos.length}`;
 }
 
@@ -92,39 +107,39 @@ function shuffleArray(length) {
 }
 
 function showAnswer() {
-    document.getElementById("answer-photo").classList.remove("hidden");
-    document.getElementById("next-button").classList.remove("hidden");
-    document.getElementById("show-answer-button").classList.add("hidden");
-    document.getElementById("answer-photo").src = answerPhotos[shuffledIndices[currentIndex]];
+    answerPhotoElement.classList.remove("hidden");
+    showAnswerButton.classList.add("hidden");
+    nextButton.classList.remove("hidden");
+    answerPhotoElement.src = answerPhotos[shuffledIndices[currentIndex]];
 }
 
 function next() {
     currentIndex++;
     if (currentIndex < questionPhotos.length) {
-        document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
-        document.getElementById("answer-photo").src = "";
-        document.getElementById("show-answer-button").classList.remove("hidden");
-        document.getElementById("next-button").classList.add("hidden");
-        document.getElementById("reset-button").classList.add("hidden");
+        questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
+        answerPhotoElement.src = "";
+        showAnswerButton.classList.remove("hidden");
+        nextButton.classList.add("hidden");
+        resetButton.classList.add("hidden");
         updateQuestionCount();
     } else {
-        document.getElementById("question-photo").classList.add("hidden");
-        document.getElementById("answer-photo").classList.add("hidden");
-        document.getElementById("show-answer-button").classList.add("hidden");
-        document.getElementById("next-button").classList.add("hidden");
-        document.getElementById("reset-button").classList.remove("hidden");
+        questionPhotoElement.classList.add("hidden");
+        answerPhotoElement.classList.add("hidden");
+        showAnswerButton.classList.add("hidden");
+        nextButton.classList.add("hidden");
+        resetButton.classList.remove("hidden");
     }
 }
 
 function reset() {
     currentIndex = 0;
     shuffledIndices = shuffleArray(questionPhotos.length);
-    document.getElementById("question-photo").classList.remove("hidden");
-    document.getElementById("answer-photo").classList.add("hidden");
-    document.getElementById("show-answer-button").classList.remove("hidden");
-    document.getElementById("next-button").classList.add("hidden");
-    document.getElementById("reset-button").classList.add("hidden");
-    document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
+    questionPhotoElement.classList.remove("hidden");
+    answerPhotoElement.classList.add("hidden");
+    showAnswerButton.classList.remove("hidden");
+    nextButton.classList.add("hidden");
+    resetButton.classList.add("hidden");
+    questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
 }
 
 function toggleMode() {
@@ -144,4 +159,14 @@ function toggleMode() {
 function goBack() {
     window.location.href = "../KumNus/option.html";
 }
+
+function preloadImages(images) {
+    images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+    });
+}
+
+preloadImages(questionPhotos);
+preloadImages(answerPhotos);
 
