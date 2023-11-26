@@ -140,3 +140,8 @@ function toggleMode() {
         button.textContent = 'Night Mode';
     }
 }
+
+function goBack() {
+    window.location.href = "../KumNus/option.html";
+}
+
