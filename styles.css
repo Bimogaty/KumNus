@@ -60,6 +60,10 @@ button:hover {
     left: 10px; /* Adjusted from left to right */
 }
 
+#reset-button{
+    color: rgb(180, 47, 47);
+}
+
 .light-mode {
     background-color: #f5f5f5;
     color: #333;
@@ -74,8 +78,3 @@ a {
     text-decoration: none;
     color: black;
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> ba96223 (Initial commit)

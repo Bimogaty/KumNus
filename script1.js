@@ -1,4 +1,4 @@
-const answerPhotos = [
+const questionPhotos = [
     "photo/photo1.webp",
     "photo/photo2.webp",
     "photo/photo3.webp",
@@ -29,7 +29,7 @@ const answerPhotos = [
     "photo/photo28.webp",
 ];
 
-const questionPhotos = [
+const answerPhotos = [
     "text/text1.webp",
     "text/text2.webp",
     "text/text3.webp",
