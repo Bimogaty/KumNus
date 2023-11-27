@@ -61,7 +61,7 @@ button:hover {
 }
 
 #reset-button{
-    color: rgb(180, 47, 47);
+    background-color: rgb(180, 47, 47);
 }
 
 .light-mode {
