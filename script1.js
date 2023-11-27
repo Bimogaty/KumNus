@@ -63,17 +63,33 @@ const answerPhotos = [
 let currentIndex = 0;
 let shuffledIndices = [];
 
+<<<<<<< HEAD
 function start() {
     document.getElementById("start-button").classList.add("hidden");
     document.getElementById("question-photo").classList.remove("hidden");
     document.getElementById("show-answer-button").classList.remove("hidden");
+=======
+const questionPhotoElement = document.getElementById("question-photo");
+const answerPhotoElement = document.getElementById("answer-photo");
+const showAnswerButton = document.getElementById("show-answer-button");
+const nextButton = document.getElementById("next-button");
+
+function start() {
+    document.getElementById("start-button").classList.add("hidden");
+    questionPhotoElement.classList.remove("hidden");
+    showAnswerButton.classList.remove("hidden");
+>>>>>>> ba96223 (Initial commit)
     document.getElementById("question-count").classList.remove("hidden");
 
     if (shuffledIndices.length === 0) {
         shuffledIndices = shuffleArray(questionPhotos.length);
     }
 
+<<<<<<< HEAD
     document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
+=======
+    questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
+>>>>>>> ba96223 (Initial commit)
     updateQuestionCount();
 }
 
@@ -83,8 +99,13 @@ function updateQuestionCount() {
 }
 
 function shuffleArray(length) {
+<<<<<<< HEAD
     const array = Array.from({ length }, (_, index) => index);
     for (let i = array.length - 1; i > 0; i--) {
+=======
+    const array = [...Array(length).keys()];
+    for (let i = length - 1; i > 0; i--) {
+>>>>>>> ba96223 (Initial commit)
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
@@ -92,15 +113,23 @@ function shuffleArray(length) {
 }
 
 function showAnswer() {
+<<<<<<< HEAD
     document.getElementById("answer-photo").classList.remove("hidden");
     document.getElementById("next-button").classList.remove("hidden");
     document.getElementById("show-answer-button").classList.add("hidden");
     document.getElementById("answer-photo").src = answerPhotos[shuffledIndices[currentIndex]];
+=======
+    answerPhotoElement.classList.remove("hidden");
+    nextButton.classList.remove("hidden");
+    showAnswerButton.classList.add("hidden");
+    answerPhotoElement.src = answerPhotos[shuffledIndices[currentIndex]];
+>>>>>>> ba96223 (Initial commit)
 }
 
 function next() {
     currentIndex++;
     if (currentIndex < questionPhotos.length) {
+<<<<<<< HEAD
         document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
         document.getElementById("answer-photo").src = "";
         document.getElementById("show-answer-button").classList.remove("hidden");
@@ -112,6 +141,19 @@ function next() {
         document.getElementById("answer-photo").classList.add("hidden");
         document.getElementById("show-answer-button").classList.add("hidden");
         document.getElementById("next-button").classList.add("hidden");
+=======
+        questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
+        answerPhotoElement.src = "";
+        showAnswerButton.classList.remove("hidden");
+        nextButton.classList.add("hidden");
+        document.getElementById("reset-button").classList.add("hidden");
+        updateQuestionCount();
+    } else {
+        questionPhotoElement.classList.add("hidden");
+        answerPhotoElement.classList.add("hidden");
+        showAnswerButton.classList.add("hidden");
+        nextButton.classList.add("hidden");
+>>>>>>> ba96223 (Initial commit)
         document.getElementById("reset-button").classList.remove("hidden");
     }
 }
@@ -119,12 +161,21 @@ function next() {
 function reset() {
     currentIndex = 0;
     shuffledIndices = shuffleArray(questionPhotos.length);
+<<<<<<< HEAD
     document.getElementById("question-photo").classList.remove("hidden");
     document.getElementById("answer-photo").classList.add("hidden");
     document.getElementById("show-answer-button").classList.remove("hidden");
     document.getElementById("next-button").classList.add("hidden");
     document.getElementById("reset-button").classList.add("hidden");
     document.getElementById("question-photo").src = questionPhotos[shuffledIndices[currentIndex]];
+=======
+    questionPhotoElement.classList.remove("hidden");
+    answerPhotoElement.classList.add("hidden");
+    showAnswerButton.classList.remove("hidden");
+    nextButton.classList.add("hidden");
+    document.getElementById("reset-button").classList.add("hidden");
+    questionPhotoElement.src = questionPhotos[shuffledIndices[currentIndex]];
+>>>>>>> ba96223 (Initial commit)
 }
 
 function toggleMode() {
@@ -145,5 +196,8 @@ function goBack() {
     window.location.href = "../KumNus/option.html";
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ba96223 (Initial commit)
